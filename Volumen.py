@@ -31,4 +31,6 @@ st.subheader(rounded_volume)
 #    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
 
 my_date = st.date_input("Datum der Untersuchung:", value="today", format="DD/MM/YYYY")
-st.write(my_date)
+my_date2 = st.date_input("Datum der Untersuchung:", value="today", format="DD/MM/YYYY")
+
+st.write(my_date-mydate2)
