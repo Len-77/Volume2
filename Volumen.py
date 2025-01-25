@@ -33,4 +33,4 @@ st.subheader(rounded_volume)
 my_date = st.date_input("Datum der 1. Untersuchung:", value="today", format="DD/MM/YYYY")
 my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
 
-st.write(my_date-mydate2)
+st.write(my_date-my_date2)
