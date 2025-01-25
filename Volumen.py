@@ -30,8 +30,6 @@ volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
 st.write("Volumen:")
 st.write(volume)
 
-my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
-
 time_elapsed = my_date2-my_date
 growth_rate = math.log(volume2 / volume) / elapsed_time
 VDT = math.log(2) / growth_rate
