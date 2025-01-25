@@ -15,19 +15,21 @@ z = st.number_input("Durchmesser 3", key=2, step=0.1, format="%0.1f", min_value=
                     help="Gesamter Durchmesser, nicht Halbachse.")
 volume = (4/3)*pi*(x/2)*(y/2)*(z/2)
 
-st.subheader("Volumen:")
+st.subheader("Volumen:"+volume)
 st.subheader(volume)
 
 #if st.button("Kopieren",0):
 #    pyperclip.copy(volume)
 #    st.write("Das Volumen wurde in die Zwischenablage kopiert.")
 
-my_digits = st.slider("Runden auf:",0,10,3)
-rounded_volume = round(volume,my_digits)
-st.write("Stellen.")
+#my_digits = st.slider("Runden auf:",0,10,3)
+#rounded_volume = round(volume,my_digits)
+#st.write("Stellen.")
 
-st.subheader("Gerundetes Volumen:")
-st.subheader(rounded_volume)
+#st.subheader("Gerundetes Volumen:")
+#st.subheader(rounded_volume)
+
+my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
 
 x2 = st.number_input("Durchmesser 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
                     help="Gesamter Durchmesser, nicht Halbachse.")
