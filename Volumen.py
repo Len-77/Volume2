@@ -30,20 +30,4 @@ st.subheader(rounded_volume)
 #    pyperclip.copy(rounded_volume)
 #    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
 
-# Text to copy
-text_to_copy = "Hello, Streamlit!"
 
-st.write("Click the button below to copy text to clipboard:")
-
-# Example text to copy
-rounded_volume = "123.45"
-
-st.write("Click the button below to copy the text to your clipboard:")
-
-if st.button("Copy to Clipboard"):
-    st.markdown(f"""
-        <script>
-            navigator.clipboard.writeText("{rounded_volume}");
-        </script>
-        """, unsafe_allow_html=True)
-    st.success("Text copied to clipboard!")
