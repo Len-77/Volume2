@@ -1,6 +1,6 @@
 import streamlit as st
 from math import pi
-#import pyperclip
+import pyperclip
 
 st.subheader("Volumenberechnung")
 st.write("Ein Online-Minitool von Lennart Schefe")
