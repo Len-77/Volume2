@@ -35,4 +35,3 @@ my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD
 time_elapsed=my_date2-my_date
 
 st.write(time_elapsed)
-st.write(time_elapsed.shape)
