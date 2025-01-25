@@ -2,8 +2,8 @@ import streamlit as st
 from math import pi
 #import pyperclip
 
-st.title("Volumenberechnung")
-#st.write("Ein Online-Minitool von Lennart Schefe")
+st.subheader("Volumenberechnung")
+st.write("Ein Online-Minitool von Lennart Schefe")
 x = st.number_input("Durchmesser 1", step=0.1, format="%0.1f", min_value=0.0, value=1.0,
                     help="Gesamter Durchmesser, nicht Halbachse.")
 y = st.number_input("Durchmesser 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0,
