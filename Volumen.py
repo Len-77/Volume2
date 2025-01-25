@@ -28,7 +28,7 @@ z2 = st.number_input("Durchmesser 3", key=5, step=0.1, format="%0.1f", min_value
 volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
 
 st.write("Volumen:")
-st.write(volume)
+st.write(volume2)
 
 time_elapsed = my_date2-my_date
 growth_rate = log(volume2 / volume) / time_elapsed.days
@@ -38,4 +38,4 @@ st.write("Vergangene Tage:")
 st.write(time_elapsed.days)
 
 st.write("Volumenverdoppelungszeit:")
-st.write(VDT)
+st.write(round(VDT))
