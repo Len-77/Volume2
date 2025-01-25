@@ -39,3 +39,4 @@ st.write(time_elapsed.days)
 
 st.write("Volumenverdoppelungszeit:")
 st.write(round(VDT))
+st.write("Tage")
