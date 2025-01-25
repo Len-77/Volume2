@@ -30,4 +30,4 @@ st.subheader(rounded_volume)
 #    pyperclip.copy(rounded_volume)
 #    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
 
-
+st.date_input("Datum der Untersuchung:", value="today", format="DD/MM/YYYY")
