@@ -26,6 +26,6 @@ st.write("Stellen.")
 st.subheader("Gerundetes Volumen:")
 st.subheader(rounded_volume)
 
-#if st.button("Kopieren",1):
-#    pyperclip.copy(rounded_volume)
-#    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
+if st.button("Kopieren",1):
+    pyperclip.copy(rounded_volume)
+    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
