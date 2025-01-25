@@ -40,10 +40,10 @@ rounded_volume = "123.45"
 
 st.write("Click the button below to copy the text to your clipboard:")
 
-# Add a JavaScript snippet for clipboard functionality
-st.markdown(f"""
-    <button onclick="navigator.clipboard.writeText('{rounded_volume}')">
-        Copy to Clipboard
-    </button>
-    """, unsafe_allow_html=True)
-
+if st.button("Copy to Clipboard"):
+    st.markdown(f"""
+        <script>
+            navigator.clipboard.writeText("{rounded_volume}");
+        </script>
+        """, unsafe_allow_html=True)
+    st.success("Text copied to clipboard!")
