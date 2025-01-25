@@ -29,3 +29,23 @@ st.subheader(rounded_volume)
 #if st.button("Kopieren",1):
 #    pyperclip.copy(rounded_volume)
 #    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
+
+# Text to copy
+text_to_copy = "Hello, Streamlit!"
+
+st.write("Click the button below to copy text to clipboard:")
+
+# JavaScript to copy text to clipboard
+copy_script = f"""
+    <script>
+    function copyToClipboard(text) {{
+        navigator.clipboard.writeText(text).then(function() {{
+            console.log('Text copied to clipboard successfully.');
+        }}, function(err) {{
+            console.error('Could not copy text: ', err);
+        }});
+    }}
+    </script>
+    <button onclick="copyToClipboard('{text_to_copy}')">Copy to Clipboard</button>
+"""
+st.markdown(copy_script, unsafe_allow_html=True)
