@@ -31,7 +31,7 @@ st.write("Volumen:")
 st.write(volume)
 
 time_elapsed = my_date2-my_date
-growth_rate = log(volume2 / volume) / elapsed_time
+growth_rate = log(volume2 / volume) / time_elapsed.days
 VDT = log(2) / growth_rate
 
 st.write("Vergangene Tage:")
