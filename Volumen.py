@@ -21,7 +21,7 @@ st.subheader(volume)
 
 my_digits = st.slider("Runden auf:",0,10,3)
 rounded_volume = round(volume,my_digits)
-st.write("Stellen")
+st.write("Stellen.")
 
 st.subheader("Gerundetes Volumen:")
 st.subheader(rounded_volume)
