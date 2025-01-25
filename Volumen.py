@@ -1,6 +1,5 @@
 import streamlit as st
-from math import pi
-import pyperclip
+from math import pi, log
 
 st.subheader("Volumenverdoppelungszeit")
 st.write("Ein Online-Minitool von Lennart Schefe")
@@ -15,19 +14,8 @@ z = st.number_input("Durchmesser 3", key=2, step=0.1, format="%0.1f", min_value=
                     help="Gesamter Durchmesser, nicht Halbachse.")
 volume = (4/3)*pi*(x/2)*(y/2)*(z/2)
 
-st.subheader("Volumen:"+volume)
-st.subheader(volume)
-
-#if st.button("Kopieren",0):
-#    pyperclip.copy(volume)
-#    st.write("Das Volumen wurde in die Zwischenablage kopiert.")
-
-#my_digits = st.slider("Runden auf:",0,10,3)
-#rounded_volume = round(volume,my_digits)
-#st.write("Stellen.")
-
-#st.subheader("Gerundetes Volumen:")
-#st.subheader(rounded_volume)
+st.write("Volumen:")
+st.write(volume)
 
 my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
 
@@ -39,12 +27,17 @@ z2 = st.number_input("Durchmesser 3", key=5, step=0.1, format="%0.1f", min_value
                     help="Gesamter Durchmesser, nicht Halbachse.")
 volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
 
-#if st.button("Kopieren",1):
-#    pyperclip.copy(rounded_volume)
-#    st.write("Das gerundete Volumen wurde in die Zwischenablage kopiert.")
-
+st.write("Volumen:")
+st.write(volume)
 
 my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
-time_elapsed=my_date2-my_date
 
+time_elapsed = my_date2-my_date
+growth_rate = math.log(volume2 / volume) / elapsed_time
+VDT = math.log(2) / growth_rate
+
+st.write("Vergangene Tage:")
 st.write(time_elapsed.days)
+
+st.write("Volumenverdoppelungszeit:")
+st.write(VDT)
