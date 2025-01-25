@@ -35,17 +35,15 @@ text_to_copy = "Hello, Streamlit!"
 
 st.write("Click the button below to copy text to clipboard:")
 
-# JavaScript to copy text to clipboard
-copy_script = f"""
-    <script>
-    function copyToClipboard(text) {{
-        navigator.clipboard.writeText(text).then(function() {{
-            console.log('Text copied to clipboard successfully.');
-        }}, function(err) {{
-            console.error('Could not copy text: ', err);
-        }});
-    }}
-    </script>
-    <button onclick="copyToClipboard('{text_to_copy}')">Copy to Clipboard</button>
-"""
-st.markdown(copy_script, unsafe_allow_html=True)
+# Example text to copy
+rounded_volume = "123.45"
+
+st.write("Click the button below to copy the text to your clipboard:")
+
+# Add a JavaScript snippet for clipboard functionality
+st.markdown(f"""
+    <button onclick="navigator.clipboard.writeText('{rounded_volume}')">
+        Copy to Clipboard
+    </button>
+    """, unsafe_allow_html=True)
+
