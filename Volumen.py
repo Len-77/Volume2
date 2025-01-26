@@ -32,9 +32,6 @@ time_elapsed = my_date2-my_date
 growth_rate = log(volume2 / volume) / time_elapsed.days
 VDT = log(2) / growth_rate
 
-st.write("Vergangene Tage:")
-st.write(time_elapsed.days)
+st.write(f"Es sind {time_elapsed.days} Tage vergangen.")
 
-st.write("Volumenverdoppelungszeit:")
-st.write(round(VDT))
-st.write("Tage")
+st.write(f"Volumenverdoppelungszeit: {round(VDT)} Tage")
