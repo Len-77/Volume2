@@ -1,10 +1,18 @@
 import streamlit as st
 from math import pi, log
+from datetime import date
 
 st.subheader("Volumenverdoppelungszeit")
 st.write("Ein Online-Minitool von Lennart Schefe")
 
-my_date = st.date_input("Datum der 1. Untersuchung:", value="today", format="DD.MM.YYYY")
+today = date.today()
+
+try:
+    one_year_before = today.replace(year=today.year - 1)
+except ValueError:
+    one_year_before = today.replace(year=today.year - 1, day=28)
+
+my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
 x = st.number_input("Durchmesser 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
                     help="Gesamter Durchmesser, nicht Halbachse.")
