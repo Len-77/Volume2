@@ -27,7 +27,7 @@ z2 = st.number_input("Durchmesser 3", key=5, step=0.1, format="%0.1f", min_value
                     help="Gesamter Durchmesser, nicht Halbachse.")
 volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
 
-st.write("Volumen:")
+st.write(f"Volumen: {volume2}")
 st.write(volume2)
 
 time_elapsed = my_date2-my_date
