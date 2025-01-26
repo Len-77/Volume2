@@ -14,6 +14,8 @@ except ValueError:
 
 mode = st.radio("",["Durchmesser", "Halbachsen", "Bekannte Volumina"],horizontal = True)
 
+st.write(mode)
+
 my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
 help_diameter = "Gesamter Durchmesser, nicht Halbachse. Typischerweise in mm."
