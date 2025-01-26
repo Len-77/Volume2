@@ -83,12 +83,13 @@ if mode == t["modes"][0]:  # Diameter Mode
     y = st.number_input(t["diameter_label"] + " 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     z = st.number_input(t["diameter_label"] + " 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     volume = (4 / 3) * pi * (x / 2) * (y / 2) * (z / 2)
-    st.write(t["volume_label"] + f": {volume}")
+    st.write(t["volume_label"] + f": {volume}" + t["rounded"] + f": {round(volume,1)}")
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
     x2 = st.number_input(t["diameter_label"] + " 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0, help=t["diameter_help"])
     y2 = st.number_input(t["diameter_label"] + " 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     z2 = st.number_input(t["diameter_label"] + " 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     volume2 = (4 / 3) * pi * (x2 / 2) * (y2 / 2) * (z2 / 2)
+    st.write(t["volume_label"] + f": {volume2}" + t["rounded"] + f": {round(volume2,1)}")
 
 elif mode == t["modes"][1]:  # Semi-Axes Mode
     my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
@@ -96,11 +97,14 @@ elif mode == t["modes"][1]:  # Semi-Axes Mode
     y = st.number_input(t["semi_axes_label"] + " 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
     z = st.number_input(t["semi_axes_label"] + " 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
     volume = (4 / 3) * pi * x * y * z
+    st.write(t["volume_label"] + f": {volume}" + t["rounded"] + f": {round(volume,1)}")
     x2 = st.number_input(t["semi_axes_label"] + " 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0, help=t["semi_axes_help"])
     y2 = st.number_input(t["semi_axes_label"] + " 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
     z2 = st.number_input(t["semi_axes_label"] + " 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
     volume2 = (4 / 3) * pi * x2 * y2 * z2
+    st.write(t["volume_label"] + f": {volume2}" + t["rounded"] + f": {round(volume2, 1)}")
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
+
 
 elif mode == t["modes"][2]:  # Known Volumes Mode
     my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
