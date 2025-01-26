@@ -12,6 +12,7 @@ translations = {
         "mode_label": "Modus auswählen:",
         "modes": ["Durchmesser", "Halbachsen", "Bekannte Volumina"],
         "diameter_help": "Gesamter Durchmesser, nicht Halbachse. Typischerweise in mm.",
+        "semi_axes_help": "Nur Halbachse, nicht gesamter Durchmesser. Typischerweise in mm.",
         "volume_label": "Volumen:",
         "time_elapsed": "Es sind {days} Tage vergangen.",
         "vdt": "Volumenverdoppelungszeit: {vdt} Tage",
@@ -31,6 +32,7 @@ translations = {
         "mode_label": "Select mode:",
         "modes": ["Diameter", "Semi-axes", "Known volumes"],
         "diameter_help": "Full diameter, not semi-axis. Typically in mm.",
+        "semi_axes_help": "Only semi-axes, not full diameter. Typically in mm.",
         "volume_label": "Volume:",
         "time_elapsed": "{days} days have passed.",
         "vdt": "Volume Doubling Time: {vdt} days",
@@ -63,27 +65,43 @@ try:
 except ValueError:
     one_year_before = today.replace(year=today.year - 1, day=28)
 
+# Mode selection
 mode = st.radio(t["mode_label"], t["modes"], horizontal=True)
 
+# Handle each mode
 if mode == t["modes"][0]:  # Diameter Mode
     my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
-    x = st.number_input("Diameter 1", step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
-    y = st.number_input("Diameter 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
-    z = st.number_input("Diameter 3", step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
-
+    x = st.number_input("Diameter 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
+    y = st.number_input("Diameter 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
+    z = st.number_input("Diameter 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     volume = (4 / 3) * pi * (x / 2) * (y / 2) * (z / 2)
-    st.write(f"{t['volume_label']} {volume}, rounded: {round(volume, 1)}")
-
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
-    x2 = st.number_input("Diameter 1 (2nd)", step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                         help=t["diameter_help"])
-    y2 = st.number_input("Diameter 2 (2nd)", step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                         help=t["diameter_help"])
-    z2 = st.number_input("Diameter 3 (2nd)", step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                         help=t["diameter_help"])
+    x2 = st.number_input("Diameter 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
+    y2 = st.number_input("Diameter 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
+    z2 = st.number_input("Diameter 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
+    volume = (4 / 3) * pi * (x2 / 2) * (y2 / 2) * (z2 / 2)
 
-    volume2 = (4 / 3) * pi * (x2 / 2) * (y2 / 2) * (z2 / 2)
-    st.write(f"{t['volume_label']} {volume2}, rounded: {round(volume2, 1)}")
+elif mode == t["modes"][1]:  # Semi-Axes Mode
+    my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
+    x = st.number_input("Semi-axis 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    y = st.number_input("Semi-axis 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    z = st.number_input("Semi-axis 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    volume = (4 / 3) * pi * x * y * z
+    x2 = st.number_input("Semi-axis 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    y2 = st.number_input("Semi-axis 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    z2 = st.number_input("Semi-axis 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["semi_axes_help"])
+    volume2 = (4 / 3) * pi * x2 * y2 * z2
+    my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
+
+elif mode == t["modes"][2]:  # Known Volumes Mode
+    my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
+    volume = st.number_input(t["volume_label"] + " 1", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
+    my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
+    volume2 = st.number_input(t["volume_label"] + " 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
+
+# Second date and volume inputs
+my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
+volume2 = st.number_input(t["volume_label"] + " 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
 
 # Calculate time elapsed
 time_elapsed = my_date2 - my_date
