@@ -105,7 +105,7 @@ elif mode == t["modes"][1]:  # Semi-Axes Mode
     volume2 = (4 / 3) * pi * x2 * y2 * z2
     st.write(t["volume_label"] + f": {volume2}, " + t["rounded"] + f": {round(volume2, 1)}")
 
-elif mode == t["modes"][2]:  # Known Volumes Mode
+else:  # Known Volumes Mode
     my_date = st.date_input(t["date1_label"], value=one_year_before, format="DD.MM.YYYY")
     volume = st.number_input(t["volume_label"] + " 1", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
@@ -116,7 +116,7 @@ time_elapsed = my_date2 - my_date
 st.write(t["time_elapsed"].format(days=time_elapsed.days))
 
 # Calculate VDT if conditions are met
-if volume > 0 and volume2 > 0 and volume2 > volume and time_elapsed.days > 0:
+if 0 < volume < volume2 and volume2 > 0 and time_elapsed.days > 0:
     growth_rate = log(volume2 / volume) / time_elapsed.days
     VDT = log(2) / growth_rate
     st.write(t["vdt"].format(vdt=round(VDT)))
