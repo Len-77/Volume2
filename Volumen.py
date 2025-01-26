@@ -81,7 +81,7 @@ if mode == t["modes"][0]:  # Diameter Mode
     y = st.number_input(t["diameter_label"] + " 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     z = st.number_input(t["diameter_label"] + " 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
     volume = (4 / 3) * pi * (x / 2) * (y / 2) * (z / 2)
-    st.write(t["volume_label"] + ": ", volume)
+    st.write(t["volume_label"] + f": {volume}")
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
     x2 = st.number_input(t["diameter_label"] + " 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0, help=t["diameter_help"])
     y2 = st.number_input(t["diameter_label"] + " 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=1.0, help=t["diameter_help"])
