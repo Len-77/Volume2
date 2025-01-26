@@ -6,7 +6,7 @@ from datetime import date
 translations = {
     "German": {
         "title": "Volumenverdoppelungszeit",
-        "subtitle": "Ein Online-Minitool von Lennart Schefe :sunglasses:",
+        "subtitle": "Ein Online-Minitool von Lennart Schefe",
         "date1_label": "Datum der 1. Untersuchung:",
         "date2_label": "Datum der 2. Untersuchung:",
         "mode_label": "Modus auswählen:",
@@ -29,7 +29,7 @@ translations = {
     },
     "English": {
         "title": "Volume Doubling Time",
-        "subtitle": "An online mini-tool by Lennart Schefe :sunglasses:",
+        "subtitle": "An online mini-tool by Lennart Schefe",
         "date1_label": "Date of 1st examination:",
         "date2_label": "Date of 2nd examination:",
         "mode_label": "Select mode:",
