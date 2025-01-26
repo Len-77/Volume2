@@ -14,35 +14,65 @@ except ValueError:
 
 mode = st.radio("",["Durchmesser", "Halbachsen", "Bekannte Volumina"],horizontal = True)
 
-st.write(mode)
+if mode = "Durchmesser" :
+    my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
-my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
+    help_diameter = "Gesamter Durchmesser, nicht Halbachse. Typischerweise in mm."
 
-help_diameter = "Gesamter Durchmesser, nicht Halbachse. Typischerweise in mm."
+    x = st.number_input("Durchmesser 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
+    y = st.number_input("Durchmesser 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
+    z = st.number_input("Durchmesser 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
 
-x = st.number_input("Durchmesser 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
-                    help=help_diameter)
-y = st.number_input("Durchmesser 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
-                    help=help_diameter)
-z = st.number_input("Durchmesser 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
-                    help=help_diameter)
+    volume = (4/3)*pi*(x/2)*(y/2)*(z/2)
+    st.write(f"Volumen: {volume}, gerundet: {round(volume,3)}")
 
-volume = (4/3)*pi*(x/2)*(y/2)*(z/2)
+    my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD.MM.YYYY")
 
-st.write(f"Volumen: {volume}, gerundet: {round(volume,3)}")
+    x2 = st.number_input("Durchmesser 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                        help=help_diameter)
+    y2 = st.number_input("Durchmesser 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                        help=help_diameter)
+    z2 = st.number_input("Durchmesser 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                        help=help_diameter)
 
-my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD.MM.YYYY")
+    volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
+    st.write(f"Volumen: {volume2}, gerundet: {round(volume2, 3)}")
 
-x2 = st.number_input("Durchmesser 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                    help=help_diameter)
-y2 = st.number_input("Durchmesser 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                    help=help_diameter)
-z2 = st.number_input("Durchmesser 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
-                    help=help_diameter)
+elif mode = "Halbachsen" :
+    my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
-volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
+    help_diameter = "Nur Halbachse, nicht gesamter Durchmesser. Typischerweise in mm."
 
-st.write(f"Volumen: {volume2}, gerundet: {round(volume2,3)}")
+    x = st.number_input("Halbachse 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
+    y = st.number_input("Halbachse 2", key=1, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
+    z = st.number_input("Halbachse 3", key=2, step=0.1, format="%0.1f", min_value=0.0, value=1.0,
+                        help=help_diameter)
+
+    volume = (4 / 3) * pi * x * y * z
+    st.write(f"Volumen: {volume}, gerundet: {round(volume, 3)}")
+
+    my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD.MM.YYYY")
+
+    x2 = st.number_input("Halbachse 1", key=3, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                         help=help_diameter)
+    y2 = st.number_input("Halbachse 2", key=4, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                         help=help_diameter)
+    z2 = st.number_input("Halbachse 3", key=5, step=0.1, format="%0.1f", min_value=0.0, value=2.0,
+                         help=help_diameter)
+
+    volume2 = (4 / 3) * pi * x * y * z
+    st.write(f"Volumen: {volume2}, gerundet: {round(volume2, 3)}")
+else:
+    my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
+    volume = st.number_input("Volumen 1", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0)
+
+    my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD.MM.YYYY")
+    volume2 = st.number_input("Volumen 2", key=0, step=0.1, format="%0.1f", min_value=0.0, value=1.0)
 
 time_elapsed = my_date2-my_date
 st.write(f"Es sind {time_elapsed.days} Tage vergangen.")
