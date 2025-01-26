@@ -99,10 +99,6 @@ elif mode == t["modes"][2]:  # Known Volumes Mode
     my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
     volume2 = st.number_input(t["volume_label"] + " 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
 
-# Second date and volume inputs
-my_date2 = st.date_input(t["date2_label"], value=today, format="DD.MM.YYYY")
-volume2 = st.number_input(t["volume_label"] + " 2", step=0.1, format="%0.1f", min_value=0.0, value=1.0)
-
 # Calculate time elapsed
 time_elapsed = my_date2 - my_date
 st.write(t["time_elapsed"].format(days=time_elapsed.days))
