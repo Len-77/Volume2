@@ -2,7 +2,10 @@ import streamlit as st
 from math import pi, log
 from datetime import date
 
-st.selectbox("Language", ["German", "English"])
+col1, col2, col3, col4 = st.columns(4)
+
+with col4:
+    st.selectbox("Language", ["German", "English"])
 
 st.subheader("Volumenverdoppelungszeit")
 st.write("Ein Online-Minitool von Lennart Schefe :sunglasses:")
