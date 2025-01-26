@@ -121,6 +121,6 @@ if volume > 0 and volume2 > 0 and volume2 > volume and time_elapsed.days > 0:
         date2=my_date2.strftime("%d.%m.%Y"),
         volume2=round(volume2, 1),
         vdt=round(VDT)
-    ))
+    ), help = t["report_help"])
 else:
     st.write(t["vdt_placeholder"])
