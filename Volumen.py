@@ -14,8 +14,7 @@ z = st.number_input("Durchmesser 3", key=2, step=0.1, format="%0.1f", min_value=
                     help="Gesamter Durchmesser, nicht Halbachse.")
 volume = (4/3)*pi*(x/2)*(y/2)*(z/2)
 
-st.write("Volumen:")
-st.write(volume)
+st.write(f"Volumen: {volume}, gerundet: {round(volume,3)}")
 
 my_date2 = st.date_input("Datum der 2. Untersuchung:", value="today", format="DD/MM/YYYY")
 
