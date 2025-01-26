@@ -14,7 +14,7 @@ except ValueError:
 
 mode = st.radio("",["Durchmesser", "Halbachsen", "Bekannte Volumina"],horizontal = True)
 
-if mode = "Durchmesser" :
+if mode == "Durchmesser" :
     my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
     help_diameter = "Gesamter Durchmesser, nicht Halbachse. Typischerweise in mm."
@@ -41,7 +41,7 @@ if mode = "Durchmesser" :
     volume2 = (4/3)*pi*(x2/2)*(y2/2)*(z2/2)
     st.write(f"Volumen: {volume2}, gerundet: {round(volume2, 3)}")
 
-elif mode = "Halbachsen" :
+elif mode == "Halbachsen" :
     my_date = st.date_input("Datum der 1. Untersuchung:", value=one_year_before, format="DD.MM.YYYY")
 
     help_diameter = "Nur Halbachse, nicht gesamter Durchmesser. Typischerweise in mm."
