@@ -81,9 +81,9 @@ if (volume > 0) and (volume2 > 0) and (volume2 > volume) and (time_elapsed.days 
     growth_rate = log(volume2 / volume) / time_elapsed.days
     VDT = log(2) / growth_rate
     st.write(f"Volumenverdoppelungszeit: {round(VDT)} Tage")
-    st.text_area("Befundtext", value = f"Am {my_date.strftime("%d.%m.%Y")} betrug das Volumen {round(volume)} ml, {time_elapsed.days} Tage später, "
-                                       f"am {my_date2.strftime("%d.%m.%Y")} betrug das Volumen {round(volume2)}. "
-                                       f"Dies enspricht einer Volumenverdoppelungszeit von {VDT} Tagen.")
+    st.text_area("Befundtext", value = f"Am {my_date.strftime("%d.%m.%Y")} betrug das Volumen {round(volume,1)} ml, {time_elapsed.days} Tage später, "
+                                       f"am {my_date2.strftime("%d.%m.%Y")} betrug das Volumen {round(volume2,1)} ml. "
+                                       f"Dies enspricht einer Volumenverdoppelungszeit von {round(VDT)} Tagen.")
 else:
     st.write("Volumenverdoppelungszeit: ...")
 
